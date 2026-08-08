@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GarnetMcp.Core/GarnetMcp.Core.csproj" />
+  <Project Path="GarnetMcp.Demo/GarnetMcp.Demo.csproj" />
+  <Project Path="GarnetMcp.Server/GarnetMcp.Server.csproj" />
+  <Project Path="GarnetMcp.Tests/GarnetMcp.Tests.csproj" />
+</Solution>

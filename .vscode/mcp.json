@@ -1,0 +1,18 @@
+{
+  "servers": {
+    "garnet-mcp": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/GarnetMcp.Server"],
+      "env": {
+        "Garnet__Host": "127.0.0.1",
+        "Garnet__Port": "6379",
+        "Garnet__LogRedisCommands": "false",
+        "Embeddings__Provider": "AzureOpenAI",
+        "Embeddings__Endpoint": "https://YOUR-RESOURCE.openai.azure.com/",
+        "Embeddings__DeploymentName": "text-embedding-3-small",
+        "Embeddings__Dimensions": "1536"
+      }
+    }
+  }
+}

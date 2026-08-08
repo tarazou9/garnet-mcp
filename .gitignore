@@ -1,0 +1,37 @@
+# --- Cloned third-party repos (do NOT upload) ---
+garnet-oss/
+prior-art/
+
+# --- .NET build output ---
+bin/
+obj/
+artifacts/
+tool-test/
+[Bb]in/
+[Oo]bj/
+*.user
+.vs/
+
+# --- Logs / temp ---
+*.log
+*.binlog
+msbuild.log
+msbuild.binlog
+
+# --- OS cruft ---
+Thumbs.db
+.DS_Store
+
+# Downloaded third-party redis-cli binary
+tools/
+
+# Personal notes (never publish)
+NoteToMyself.md
+
+# Local dev / testing helper scripts (kept out of the published repo)
+mcp-probe.ps1
+smoke-test.ps1
+start-local-garnet.ps1
+
+# Docs excluded from the repo for now
+docs/

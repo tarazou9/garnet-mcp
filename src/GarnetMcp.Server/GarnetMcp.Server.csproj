@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\GarnetMcp.Core\GarnetMcp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
+    <PackageReference Include="ModelContextProtocol" Version="2.0.0-preview.2" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="2.0.0-preview.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shipped inside the NuGet package so NuGet.org / the MCP Registry can advertise the server. -->
+    <None Include=".mcp\server.json" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- MCP server packaging: publish as a .NET tool that clients run via `dnx`. -->
+    <PackAsTool>true</PackAsTool>
+    <PackageType>McpServer</PackageType>
+    <PackageId>GarnetMcp.Server</PackageId>
+    <ToolCommandName>garnet-mcp</ToolCommandName>
+    <Version>0.1.1</Version>
+
+    <Title>Garnet Vector Memory MCP Server</Title>
+    <Authors>Tara Zou</Authors>
+    <Description>An MCP server that gives LLM agents long-term memory backed by Garnet Vector Sets (self-hosted OSS Garnet). Store text as embeddings and recall it by meaning across sessions.</Description>
+    <PackageTags>mcp;modelcontextprotocol;garnet;vector;embeddings;memory;ai;rag</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/tarazou9/garnet-mcp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tarazou9/garnet-mcp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+</Project>

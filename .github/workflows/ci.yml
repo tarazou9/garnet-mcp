@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore src/GarnetMcp.slnx
+
+      - name: Build
+        run: dotnet build src/GarnetMcp.slnx -c Release --no-restore
+
+      # Integration tests self-skip when a local Garnet / Azure OpenAI endpoint is not reachable,
+      # so the suite stays green in CI without external dependencies.
+      - name: Test
+        run: dotnet test src/GarnetMcp.slnx -c Release --no-build --verbosity normal
+
+  pack:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+
+      # Validates that the MCP server tool package (including .mcp/server.json) builds correctly.
+      - name: Pack MCP server
+        run: dotnet pack src/GarnetMcp.Server/GarnetMcp.Server.csproj -c Release -o ./artifacts
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkg
+          path: ./artifacts/*.nupkg
