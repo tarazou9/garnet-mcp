@@ -32,7 +32,7 @@
 
     <Title>Garnet Vector Memory MCP Server</Title>
     <Authors>Tara Zou</Authors>
-    <Description>An MCP server that gives LLM agents long-term memory backed by Garnet Vector Sets (self-hosted OSS Garnet). Store text as embeddings and recall it by meaning across sessions.</Description>
+    <Description>An MCP server that gives LLM agents a retrieval-augmented (RAG) memory backed by Garnet Vector Sets: store text as embeddings and retrieve the most semantically relevant snippets by meaning. Runs against local or self-hosted OSS Garnet with bring-your-own embeddings.</Description>
     <PackageTags>mcp;modelcontextprotocol;garnet;vector;embeddings;memory;ai;rag</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
