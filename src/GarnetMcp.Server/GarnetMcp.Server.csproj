@@ -28,7 +28,7 @@
     <PackageType>McpServer</PackageType>
     <PackageId>GarnetMcp.Server</PackageId>
     <ToolCommandName>garnet-mcp</ToolCommandName>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
 
     <Title>Garnet Vector Memory MCP Server</Title>
     <Authors>Tara Zou</Authors>
